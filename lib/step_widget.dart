@@ -15,8 +15,16 @@ class StepWidget extends StatelessWidget {
             alignment: Alignment.center,
             height: 300,
             width: double.infinity,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                   image: AssetImage(
+                  'assets/images/rounded.png'),
+                   fit: BoxFit.cover,
+              ),
+              shape: BoxShape.circle,
+            ),
             child: Image(
-              image: AssetImage("assets/images/Subscripe.png"),
+              image: AssetImage("assets/images/person.png"),
               fit: BoxFit.cover,
               height: 300,
             ),
