@@ -19,15 +19,17 @@ class LoginWidget extends StatelessWidget {
               padding: EdgeInsets.all(10),
               child: Column(
                 children: [
-                  SizedBox(height: 50,),
+                  SizedBox(height: 100,),
                   Container(
                     alignment: Alignment.centerLeft,
                     child: Image(
                       image: AssetImage("assets/images/sideImage.png"),
                       fit: BoxFit.cover,
+                      // width: 300,
+                      // height: 200,
                       ),
                   ),
-                  SizedBox(height: 50,),
+                  SizedBox(height: 20,),
                   Expanded(
                     child: ListView(
                       children: <Widget>[
