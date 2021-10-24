@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import "package:flutter/services.dart";
 
 class IntroSwiper extends StatelessWidget {
+
+  static const platform =  MethodChannel("com.flutter.epic/epic");
 
   final List<PageViewModel> listPagesViewModel = <PageViewModel>[
   PageViewModel(
@@ -34,6 +37,7 @@ class IntroSwiper extends StatelessWidget {
   pages: listPagesViewModel,
   onDone: () {
     // When done button is press
+    getSwiftValue();
   },
   onSkip: () {
     // You can also override onSkip callback
@@ -52,6 +56,16 @@ class IntroSwiper extends StatelessWidget {
       borderRadius: BorderRadius.circular(25.0)
     )
   ),
-);
+   );
   } 
+
+  void getSwiftValue() async {
+    String value;
+
+    try {
+      value = await platform.invokeMethod("getSwiftValue");
+    } catch (error) {
+      print("error is $error");
+    }
+  }
 }
