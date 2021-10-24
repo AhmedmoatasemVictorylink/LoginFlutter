@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:login_app/intro_swiper.dart';
+import 'package:login_app/intro_widget.dart';
 import 'package:login_app/login_widget.dart';
 import 'package:login_app/step_widget.dart';
 
@@ -25,8 +27,9 @@ class _State extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       // body: LoginWidget(),
-       body: StepWidget(),
+      body: IntroSwiper(),
+      // body: LoginWidget(),
+      //  body: StepWidget(),
       );
   }
 }
