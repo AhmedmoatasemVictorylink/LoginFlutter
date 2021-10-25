@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class StepWidget extends StatelessWidget {
+class Step2Widget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,23 +14,23 @@ class StepWidget extends StatelessWidget {
             alignment: Alignment.center,
             height: 300,
             width: double.infinity,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                   image: AssetImage(
-                  'assets/images/rounded.png'),
-                   fit: BoxFit.cover,
-              ),
-              shape: BoxShape.circle,
-            ),
+            // decoration: BoxDecoration(
+            //   image: DecorationImage(
+            //        image: AssetImage(
+            //       'assets/images/rounded.png'),
+            //        fit: BoxFit.cover,
+            //   ),
+            //   shape: BoxShape.circle,
+            // ),
             child: Image(
-              image: AssetImage("assets/images/tutorial_img2.png"),
+              image: AssetImage("assets/images/tutorial_img.png"),
               fit: BoxFit.cover,
               height: 300,
             ),
           ),
           SizedBox(height: 10,),
           Text(
-            "يمكنك الاشتراك بكل سهولة",
+            "رفيقي هو الاختيار الأمثل للقراءة",
             style: TextStyle(
               fontSize: 20,
               color: Colors.black,
@@ -39,7 +39,7 @@ class StepWidget extends StatelessWidget {
             ),
             SizedBox(height: 10,),
             Text(
-              "بخطوات بسيطة جدا يمكنك الاشتراك في مختلف الأنظمة شهري, ربع سنوي او سنوي",
+              "اكبر مكتبة الكترونية للاستمتاع بالقراءة من خلال كتب اليكترونية",
               style: TextStyle(
                 fontSize: 20,
                 color: Colors.black,
@@ -60,7 +60,7 @@ class StepWidget extends StatelessWidget {
                   fontSize: 15,
                 )
               ),
-              child: Text('لنبدأ'),
+              child: Text('التالي'),
               onPressed: () {},
             ),
           ),
