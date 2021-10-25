@@ -24,11 +24,12 @@ class StepWidget extends StatelessWidget {
               shape: BoxShape.circle,
             ),
             child: Image(
-              image: AssetImage("assets/images/person.png"),
+              image: AssetImage("assets/images/tutorial_img2.png"),
               fit: BoxFit.cover,
               height: 300,
             ),
           ),
+          SizedBox(height: 10,),
           Text(
             "يمكنك الاشتراك بكل سهولة",
             style: TextStyle(
@@ -64,27 +65,27 @@ class StepWidget extends StatelessWidget {
               onPressed: () {},
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                width: 70,
-                height: 60,
-                child: Divider(
-                    color: Colors.black,
-                  ),
-              ),
-              SizedBox(width: 10,),
-              Container(
-                width: 130,
-                height: 60,
-                child: Divider(
-                    color: Colors.black,
-                    thickness: 1.5,
-                  ),
-              ),
-            ],
-          )
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   children: [
+          //     Container(
+          //       width: 70,
+          //       height: 60,
+          //       child: Divider(
+          //           color: Colors.black,
+          //         ),
+          //     ),
+          //     SizedBox(width: 10,),
+          //     Container(
+          //       width: 130,
+          //       height: 60,
+          //       child: Divider(
+          //           color: Colors.black,
+          //           thickness: 1.5,
+          //         ),
+          //     ),
+          //   ],
+          // ),
         ],
       ),
     );

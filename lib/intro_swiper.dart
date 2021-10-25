@@ -21,7 +21,7 @@ class IntroSwiper extends StatelessWidget {
   PageViewModel(
   title: "يمكنك الاشتراك بكل سهولة",
   body: "بخطوات بسيطة جدا يمكنك الاشتراك في مختلف الأنظمة شهري, ربع سنوي او سنوي",
-  image:  Center(child: Image.asset('assets/images/person.png')),
+  image:  Center(child: Image.asset('assets/images/tutorial_img2.png')),
   footer: ElevatedButton(
     onPressed: () {
       // On button presed

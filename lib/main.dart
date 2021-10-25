@@ -27,7 +27,8 @@ class _State extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IntroSwiper(),
+      body: IntroWidget(),
+     // body: IntroSwiper(),
       // body: LoginWidget(),
       //  body: StepWidget(),
       );
