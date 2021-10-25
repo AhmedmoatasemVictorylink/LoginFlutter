@@ -7,29 +7,21 @@ class Step2Widget extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 70,
           ),
           Container(
             alignment: Alignment.center,
             height: 300,
             width: double.infinity,
-            // decoration: BoxDecoration(
-            //   image: DecorationImage(
-            //        image: AssetImage(
-            //       'assets/images/rounded.png'),
-            //        fit: BoxFit.cover,
-            //   ),
-            //   shape: BoxShape.circle,
-            // ),
-            child: Image(
+            child: const Image(
               image: AssetImage("assets/images/tutorial_img.png"),
               fit: BoxFit.cover,
               height: 300,
             ),
           ),
           SizedBox(height: 10,),
-          Text(
+          const Text(
             "رفيقي هو الاختيار الأمثل للقراءة",
             style: TextStyle(
               fontSize: 20,
@@ -38,7 +30,7 @@ class Step2Widget extends StatelessWidget {
             ),
             ),
             SizedBox(height: 10,),
-            Text(
+            const Text(
               "اكبر مكتبة الكترونية للاستمتاع بالقراءة من خلال كتب اليكترونية",
               style: TextStyle(
                 fontSize: 20,
@@ -55,7 +47,7 @@ class Step2Widget extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 primary: HexColor("##000000"),
                 onPrimary: Colors.white,
-                textStyle: TextStyle(
+                textStyle: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 15,
                 )

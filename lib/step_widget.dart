@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:login_app/login_widget.dart';
 
 class StepWidget extends StatelessWidget {
   @override
@@ -7,14 +8,14 @@ class StepWidget extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 70,
           ),
           Container(
             alignment: Alignment.center,
             height: 300,
             width: double.infinity,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                    image: AssetImage(
                   'assets/images/rounded.png'),
@@ -22,14 +23,14 @@ class StepWidget extends StatelessWidget {
               ),
               shape: BoxShape.circle,
             ),
-            child: Image(
+            child: const Image(
               image: AssetImage("assets/images/tutorial_img2.png"),
               fit: BoxFit.cover,
               height: 300,
             ),
           ),
           SizedBox(height: 10,),
-          Text(
+          const Text(
             "يمكنك الاشتراك بكل سهولة",
             style: TextStyle(
               fontSize: 20,
@@ -38,7 +39,7 @@ class StepWidget extends StatelessWidget {
             ),
             ),
             SizedBox(height: 10,),
-            Text(
+            const Text(
               "بخطوات بسيطة جدا يمكنك الاشتراك في مختلف الأنظمة شهري, ربع سنوي او سنوي",
               style: TextStyle(
                 fontSize: 20,
@@ -55,13 +56,18 @@ class StepWidget extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 primary: HexColor("##000000"),
                 onPrimary: Colors.white,
-                textStyle: TextStyle(
+                textStyle: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 15,
                 )
               ),
               child: Text('لنبدأ'),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                     context,
+                     MaterialPageRoute(builder: (context) => LoginWidget()),
+                );
+              },
             ),
           ),
         ],
