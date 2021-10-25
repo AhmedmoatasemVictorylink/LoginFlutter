@@ -60,10 +60,16 @@ class IntroSwiper extends StatelessWidget {
   } 
 
   void getSwiftValue() async {
+
+   var sendDataMap = <String, dynamic> {
+     "value1" : "1"
+   };
+
     String value;
 
     try {
-      value = await platform.invokeMethod("getSwiftValue");
+      value = await platform.invokeMethod("getSwiftValue", sendDataMap);
+      print(value);
     } catch (error) {
       print("error is $error");
     }
