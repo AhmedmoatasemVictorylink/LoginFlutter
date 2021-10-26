@@ -20,7 +20,7 @@ class Step2Widget extends StatelessWidget {
               height: 300,
             ),
           ),
-          SizedBox(height: 10,),
+          const SizedBox(height: 10,),
           const Text(
             "رفيقي هو الاختيار الأمثل للقراءة",
             style: TextStyle(
@@ -29,7 +29,7 @@ class Step2Widget extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
             ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             const Text(
               "اكبر مكتبة الكترونية للاستمتاع بالقراءة من خلال كتب اليكترونية",
               style: TextStyle(
@@ -39,10 +39,10 @@ class Step2Widget extends StatelessWidget {
               overflow: TextOverflow.clip,
               textAlign: TextAlign.center,
             ),
-         SizedBox(height: 60),
+         const SizedBox(height: 60),
           Container(
             width: 150,
-            padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+            padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 primary: HexColor("##000000"),
@@ -52,7 +52,7 @@ class Step2Widget extends StatelessWidget {
                   fontSize: 15,
                 )
               ),
-              child: Text('التالي'),
+              child: const Text('التالي'),
               onPressed: () {},
             ),
           ),

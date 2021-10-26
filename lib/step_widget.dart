@@ -29,7 +29,7 @@ class StepWidget extends StatelessWidget {
               height: 300,
             ),
           ),
-          SizedBox(height: 10,),
+          const SizedBox(height: 10,),
           const Text(
             "يمكنك الاشتراك بكل سهولة",
             style: TextStyle(
@@ -38,7 +38,7 @@ class StepWidget extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
             ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             const Text(
               "بخطوات بسيطة جدا يمكنك الاشتراك في مختلف الأنظمة شهري, ربع سنوي او سنوي",
               style: TextStyle(
@@ -48,10 +48,10 @@ class StepWidget extends StatelessWidget {
               overflow: TextOverflow.clip,
               textAlign: TextAlign.center,
             ),
-         SizedBox(height: 60),
+         const SizedBox(height: 60),
           Container(
             width: 150,
-            padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+            padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 primary: HexColor("##000000"),
@@ -61,7 +61,7 @@ class StepWidget extends StatelessWidget {
                   fontSize: 15,
                 )
               ),
-              child: Text('لنبدأ'),
+              child: const Text('لنبدأ'),
               onPressed: () {
                 Navigator.push(
                      context,
