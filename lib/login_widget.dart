@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:login_app/created_form.dart';
 import 'package:login_app/home_screen.dart';
 import 'package:login_app/utils/authentication.dart';
 import 'package:login_app/utils/custom_colors.dart';
@@ -114,13 +115,24 @@ class LoginWidget extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          primary: HexColor("#FDCC53"),
+                          primary: CustomColors.firebaseOrange,
                           onPrimary: Colors.black,
                         ),
-                        child: const Text('Login'),
+                        child: const Text(
+                          'Login',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            letterSpacing: 2,
+                          ),
+                        ),
                         onPressed: () {
-                          print(nameController.text);
-                          print(passwordController.text);
+                          Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => CreatedForm(),
+                                ),
+                              );
                         },
                       ),
                     ),
@@ -135,7 +147,12 @@ class LoginWidget extends StatelessWidget {
                               primary: HexColor("#000759"),
                               onPrimary: Colors.white,
                             ),
-                            child: const Text('Facebook login'),
+                            child: const Text(
+                              'Facebook login',
+                              style: TextStyle(
+                                letterSpacing: 2,
+                              ),
+                            ),
                             onPressed: () {
                               print("facebook login");
                             },
@@ -145,7 +162,12 @@ class LoginWidget extends StatelessWidget {
                             width: 200,
                             child: OutlinedButton(
                               onPressed: () {},
-                              child: const Text('Visitor tour'),
+                              child: const Text(
+                                'Visitor tour',
+                                style: TextStyle(
+                                  letterSpacing: 2,
+                                ),
+                              ),
                               style: OutlinedButton.styleFrom(
                                 side: const BorderSide(
                                     width: 1, color: Colors.white),
@@ -158,7 +180,7 @@ class LoginWidget extends StatelessWidget {
                             ),
                             shape: MaterialStateProperty.all(
                               RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
+                                borderRadius: BorderRadius.circular(6),
                               ),
                             ),
                           ),
@@ -181,12 +203,12 @@ class LoginWidget extends StatelessWidget {
                               );
                             }
                           },
-                          child: Padding(
+                          child: const Padding(
                             padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
                             child: Text(
                               'Biometric login',
                               style: TextStyle(
-                                fontSize: 20,
+                                fontSize: 18,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
                                 letterSpacing: 2,

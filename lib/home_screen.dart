@@ -11,7 +11,15 @@ class HomeScreen extends StatelessWidget {
         elevation: 0,
         leading: Container(),
         backgroundColor: CustomColors.firebaseNavy,
-        title: Text("Home Screen"),
+        title: const Text(
+          "Home Screen",
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+            letterSpacing: 2,
+          ),
+        ),
       ),
       body: SafeArea(
         child: Padding(
@@ -29,7 +37,7 @@ class HomeScreen extends StatelessWidget {
                 size: 60,
                 color: CustomColors.firebaseGrey,
               ),
-              SizedBox(height: 24.0),
+              const SizedBox(height: 24.0),
               Text(
                 'You have successfully accessed Home screen',
                 style: TextStyle(
@@ -38,7 +46,7 @@ class HomeScreen extends StatelessWidget {
                   letterSpacing: 0.2,
                 ),
               ),
-              SizedBox(height: 24.0),
+              const SizedBox(height: 24.0),
               ElevatedButton(
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.redAccent),
@@ -49,7 +57,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: () => Navigator.of(context).pop(),
-                child: Padding(
+                child: const Padding(
                   padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
                   child: Text(
                     'Go Back',
