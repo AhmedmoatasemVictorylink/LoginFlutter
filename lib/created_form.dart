@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:login_app/home_screen.dart';
+import 'package:login_app/map_screen.dart';
 import 'package:login_app/utils/authentication.dart';
 import 'package:login_app/utils/custom_colors.dart';
 
@@ -15,37 +17,94 @@ class _CreatedFormState extends State<CreatedForm> {
   // set the formkey for validation
   var _formkey = GlobalKey<FormState>();
 
-  final List<dynamic> list = [
-    DrawableTextField(
-        hint: "user name",
-        title: "User Name",
+  List<dynamic> list = [];
+
+  @override
+  void initState() {
+    super.initState();
+    list = [
+      DrawableTextField(
+          hint: "user name",
+          title: "User Name",
+          isRequired: true,
+          icon: Icons.person,
+          onChange: (value) {
+            print(value);
+          }),
+      DrawablePasswordField(
+        hint: "password",
+        title: "Password",
+        isRequired: true,
+        icon: Icons.password,
+        onChange: (value) => print(value),
+      ),
+      DrawableDropDownField(
+        title: "Select on of the below",
+        hint: "hint",
+        isRequired: true,
+        icon: Icons.password,
+        onChange: (value) => print(value),
+        items: ['first', 'second', 'third'],
+      ),
+      DrawableCheckBoxField(
+        title: "This is Checkbox 1",
+        hint: "hint",
+        isRequired: true,
+        icon: Icons.check_box,
+        checkbox1: true,
+        onChange: (value) {
+          print(value);
+          setState(() {
+            value = !value!;
+          });
+        },
+      ),
+      DrawableRadioButtonField(
+        gender: "male",
+        title: "Gender radio",
+        hint: "hint",
         isRequired: true,
         icon: Icons.person,
         onChange: (value) {
-          print(value);
-        }),
-    DrawableTextField(
-      hint: "password",
-      title: "Password",
-      isRequired: true,
-      icon: Icons.password,
-      onChange: (value) => print(value),
-    ),
-    DrawableDropDownField(
-      title: "Select on of the below",
-      hint: "hint",
-      isRequired: true,
-      icon: Icons.password,
-      onChange: (value) => print(value),
-      items: ['first', 'second', 'third'],
-    ),
-  ];
+          setState(() {
+            print(value);
+          });
+        },
+      ),
+      DrawableRadioButtonField(
+        gender: "female",
+        title: "Gender radio",
+        hint: "hint",
+        isRequired: true,
+        icon: Icons.person,
+        onChange: (value) {
+          setState(() {
+            print(value);
+          });
+        },
+      ),
+      DrawableMapField(
+          title: "map",
+          hint: "hint",
+          isRequired: true,
+          icon: Icons.map,
+          onChange: (_) {},
+          onNavigate: () {
+            print("navigating");
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => MapScreen(),
+              ),
+            );
+          })
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: CustomColors.firebaseOrange,
+        backgroundColor: CustomColors.firebaseNavy,
       ),
       body: SingleChildScrollView(
         child: Form(
@@ -132,6 +191,55 @@ class DrawableTextField implements DrawableField<String> {
   }
 }
 
+// text filed form field
+class DrawablePasswordField implements DrawableField<String> {
+  @override
+  String hint;
+
+  @override
+  bool isRequired;
+
+  @override
+  String title;
+
+  @override
+  IconData icon;
+
+  @override
+  Function(String?) onChange;
+
+  DrawablePasswordField({
+    required this.title,
+    required this.hint,
+    required this.isRequired,
+    required this.icon,
+    required this.onChange,
+  });
+
+  @override
+  Widget get widget {
+    return TextFormField(
+      decoration: InputDecoration(
+        icon: Icon(icon),
+        hintText: hint,
+        labelText: title,
+      ),
+      keyboardType: TextInputType.text,
+      obscureText: true,
+      validator: (value) {
+        if (!isRequired) {
+          return null;
+        }
+
+        if (value!.isEmpty) {
+          return 'Please enter some text';
+        }
+        return null;
+      },
+    );
+  }
+}
+
 /// Drop down form field
 ///
 class DrawableDropDownField implements DrawableField<String> {
@@ -180,98 +288,143 @@ class DrawableDropDownField implements DrawableField<String> {
   }
 }
 
-/*
-/// Drop down form field
-/// 
-class DrawableDropDownButtonFoemFled implements DrawableDropDownField {
-
+/// check box form field
+///
+class DrawableCheckBoxField implements DrawableField<bool> {
   @override
   String hint;
 
   @override
-  bool isExpanded;
+  bool isRequired;
 
   @override
-  List<String> items;
+  String title;
 
   @override
-  Function() onChanged;
+  IconData icon;
 
   @override
-  Function() onSaved;
+  Function(bool?) onChange;
 
-  @override
-  String selectedValue; 
+  bool checkbox1 = true;
 
-  DrawableDropDownButtonFoemFled({
-    required this.selectedValue,
+  DrawableCheckBoxField({
+    required this.title,
     required this.hint,
-    required this.isExpanded,
-    required this.onChanged,
-    required this.onSaved,
-    required this.items,
+    required this.isRequired,
+    required this.icon,
+    required this.onChange,
+    required this.checkbox1,
   });
 
   @override
   Widget get widget {
-    return DropdownButtonFormField(
-        value: selectedValue,
-        hint: Text(hint,),
-        isExpanded: isExpanded,
-        onChanged: onChanged,
-        onSaved: onSaved,
-        items: items
-           .map((String val) {
-                return DropdownMenuItem(
-                   value: val,
-                   child: Text(
-                        val,                   
-                         ),
-                       );
-                    }).toList(),
-                 );
-    }
+    return Row(children: [
+      SizedBox(
+        width: 10,
+        child: Checkbox(
+          value: checkbox1,
+          activeColor: Colors.orange,
+          onChanged: (value) => onChange(checkbox1 = value as bool),
+        ),
+      ),
+      const SizedBox(width: 10.0),
+      Text(title),
+    ]);
+  }
 }
-*/
 
-/* Column(children: <Widget>[
-            const SizedBox(
-              height: 10,
-            ),
-            list.map((e) => e.widget).first,
-            const SizedBox(
-              height: 10,
-            ),
-            ElevatedButton(
-                child: const Text('Send'),
-                onPressed: () {
-                  if (_formkey.currentState!.validate()) {
-                    Authentication.customSnackBar(
-                      content: 'Error authenticating using Biometrics.',
-                    );
-                  }
-                }
-              ),
-          ]),*/
+/// radio button form field
+///
+class DrawableRadioButtonField implements DrawableField<String> {
+  @override
+  String hint;
 
-/*  String formItems = json.encode([
-    {
-      "title": "name",
-      "label": "what is your name",
-      "type": "text",
-      "required": "yes"
-    },
-    {
-      "title": "dateOfReg",
-      "label": "what is the date of registration",
-      "type": "date",
-      "required": "no"
-    },
-    {
-      "title": "agegroup",
-      "label": "tell us your age group gbyb",
-      "type": "select",
-      "items": ["1-20", "21-30", "31-40", "41-50", "51-60"],
-      "required": "no"
-    }
-  ]);*/
+  @override
+  bool isRequired;
+
+  @override
+  String title;
+
+  @override
+  IconData icon;
+
+  @override
+  Function(String?) onChange;
+
+  String gender;
+
+  var selectedValue;
+
+  DrawableRadioButtonField({
+    required this.title,
+    required this.hint,
+    required this.isRequired,
+    required this.icon,
+    required this.onChange,
+    required this.gender,
+  });
+
+  @override
+  Widget get widget {
+    return Row(children: [
+      SizedBox(
+        width: 10,
+        child: Radio<String>(
+          value: title,
+          groupValue: gender,
+          activeColor: Colors.orange,
+          onChanged: (value) => onChange(gender = value as String),
+        ),
+      ),
+      const SizedBox(width: 10.0),
+      Text(title),
+    ]);
+  }
+}
+
+/// radio button form field
+///
+class DrawableMapField implements DrawableField<String> {
+  @override
+  String hint;
+
+  @override
+  bool isRequired;
+
+  @override
+  String title;
+
+  @override
+  IconData icon;
+
+  @override
+  Function(String?) onChange;
+
+  Function() onNavigate;
+
+  DrawableMapField({
+    required this.title,
+    required this.hint,
+    required this.isRequired,
+    required this.icon,
+    required this.onChange,
+    required this.onNavigate,
+  });
+
+  @override
+  Widget get widget {
+    return GestureDetector(
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            "Open map",
+            textAlign: TextAlign.center,
+          ),
+        ),
+      ),
+      onTap: onNavigate,
+    );
+  }
+}
