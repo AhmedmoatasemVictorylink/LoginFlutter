@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:login_app/google_map_screen.dart';
 import 'package:login_app/home_screen.dart';
-import 'package:login_app/map_screen.dart';
 import 'package:login_app/utils/authentication.dart';
 import 'package:login_app/utils/custom_colors.dart';
 
@@ -93,7 +93,7 @@ class _CreatedFormState extends State<CreatedForm> {
             print("navigating");
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => MapScreen(),
+                builder: (context) => GoogleMapScreen(),
               ),
             );
           })
@@ -105,6 +105,12 @@ class _CreatedFormState extends State<CreatedForm> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: CustomColors.firebaseNavy,
+        title: Text(
+          "Dynmaic form",
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Form(

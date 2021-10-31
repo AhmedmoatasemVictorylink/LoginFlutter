@@ -1,5 +1,6 @@
 import UIKit
 import Flutter
+import GoogleMaps
 
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate {
@@ -10,6 +11,8 @@ import Flutter
     
     let controller : FlutterViewController = window?.rootViewController as! FlutterViewController
     GeneratedPluginRegistrant.register(with: self)
+    
+    GMSServices.provideAPIKey("AIzaSyCRxofXF-6GjSJFK7sRSpnQdeBN9QfjkzI")
 
     // let navigationController : UINavigationController?
     // navigationController = UINavigationController(rootViewController: controller)
