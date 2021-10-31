@@ -22,12 +22,12 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
           markerId: const MarkerId("marker_1"),
           position: _kMapCenter,
           infoWindow: const InfoWindow(title: 'Maadi marker'),
-          rotation: 90),
+          rotation: 0),
       const Marker(
           markerId: MarkerId("marker_2"),
           position: LatLng(30.0511, 31.3656),
           infoWindow: InfoWindow(title: 'Nasr city marker'),
-          rotation: 90),
+          rotation: 0),
     };
   }
 
