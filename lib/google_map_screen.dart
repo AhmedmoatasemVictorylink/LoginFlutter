@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:login_app/utils/authentication.dart';
 import 'package:login_app/utils/custom_colors.dart';
 
 class GoogleMapScreen extends StatefulWidget {
@@ -10,11 +11,25 @@ class GoogleMapScreen extends StatefulWidget {
 }
 
 class _GoogleMapScreenState extends State<GoogleMapScreen> {
-  static final LatLng _kMapCenter =
-      LatLng(19.018255973653343, 72.84793849278007);
+  static final LatLng _kMapCenter = LatLng(29.9602, 31.2569);
 
   static final CameraPosition _kInitialPosition =
       CameraPosition(target: _kMapCenter, zoom: 11.0, tilt: 0, bearing: 0);
+
+  Set<Marker> _createMarker() {
+    return {
+      Marker(
+          markerId: const MarkerId("marker_1"),
+          position: _kMapCenter,
+          infoWindow: const InfoWindow(title: 'Maadi marker'),
+          rotation: 90),
+      const Marker(
+          markerId: MarkerId("marker_2"),
+          position: LatLng(30.0511, 31.3656),
+          infoWindow: InfoWindow(title: 'Nasr city marker'),
+          rotation: 90),
+    };
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +45,17 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
       ),
       body: GoogleMap(
         initialCameraPosition: _kInitialPosition,
+        mapType: MapType.normal,
+        myLocationEnabled: true,
+        markers: _createMarker(),
+        trafficEnabled: true,
+        onTap: (latLong) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            Authentication.customSnackBar(
+                content:
+                    'Tapped location LatLong is (${latLong.latitude},${latLong.longitude})'),
+          );
+        },
       ),
     );
   }
