@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:login_app/utils/authentication.dart';
 import 'package:login_app/utils/custom_colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class GoogleMapScreen extends StatefulWidget {
   const GoogleMapScreen({Key? key}) : super(key: key);
@@ -33,11 +34,13 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var t = AppLocalizations.of(context);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: CustomColors.firebaseNavy,
-        title: const Text(
-          'Google Maps Demo',
+        title: Text(
+          t!.mapTitle,
           style: TextStyle(
             color: Colors.white,
           ),
