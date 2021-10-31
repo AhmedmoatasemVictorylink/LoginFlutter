@@ -53,7 +53,7 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
           ScaffoldMessenger.of(context).showSnackBar(
             Authentication.customSnackBar(
                 content:
-                    'Tapped location LatLong is (${latLong.latitude},${latLong.longitude})'),
+                    'Tapped location Lat is ${latLong.latitude}\n and long is ${latLong.longitude}'),
           );
         },
       ),
